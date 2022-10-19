@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import { AppComponent } from '../src/app/app.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -29,5 +29,14 @@ describe('AppComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     const h1 = compiled.querySelector('h1');
     expect(h1?.textContent).toContain(component.title);
+  });
+
+  test('debe hacer match con el snapshot', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const component = fixture.componentInstance;
+
+    expect( component ).toMatchSnapshot();
+
   });
 });
