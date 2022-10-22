@@ -1,15 +1,32 @@
+import { HttpClientModule } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
-import { PokemonService } from 'src/app/basic/services/pokemon.service';
+import { PokemonService } from '../../../src/app/basic/services/pokemon.service';
 
 describe('PokemonService', () => {
   let service: PokemonService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [
+        HttpClientModule
+      ]
+    });
     service = TestBed.inject(PokemonService);
   });
 
-  it('should be created', () => {
+  test('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  test('debe de traer informacion de bolcasour', (done) => {
+    service.getPokemon(1).subscribe( pokemon => {
+      // console.log(pokemon)
+      expect(pokemon.name).toBe('bulbasaur');
+
+      done();
+    });
+
+  });
+
+
 });
