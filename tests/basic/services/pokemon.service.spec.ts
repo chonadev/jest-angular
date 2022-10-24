@@ -18,11 +18,12 @@ describe('PokemonService', () => {
     expect(service).toBeTruthy();
   });
 
-  test('debe de traer informacion de bolcasour', (done) => {
+  test('debe de traer informacion de bulbasaur', (done) => {
     service.getPokemon(1).subscribe( pokemon => {
       // console.log(pokemon)
       expect(pokemon.name).toBe('bulbasaur');
-
+      // se evalua tan rapido que no espera que el back responda, se usa el callback "done" 
+      // esto le indica que espere que termine y luego evalue.
       done();
     });
 
