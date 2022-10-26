@@ -1,3 +1,4 @@
+import { FatherComponent } from './basic/father/father.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CounterComponent } from './basic/counter/counter.component';
@@ -14,8 +15,12 @@ const routes: Routes = [
     component: CharizardComponent
   },
   {
+    path: "basic/father",
+    component: FatherComponent
+  },
+  {
     path: "**",
-    redirectTo: "basic/charizard"
+    redirectTo: "basic/father"
   }
 ]
 
